@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+import json 
+import sys
+import os
+import alluxio 
+import time
+from alluxio import option
+
+py_test = "/py-test"
+client = alluxio.Client('localhost', 39999)
+i = 0
+j = 0
+k = 0
+mystr = "0"
+for j in range(0,1023):
+    for k in range(0,8191):
+        mystr = mystr + "0"
+#info("writing to %s" % py_test)
+time_start=time.time()
+with client.open(py_test, 'w') as f:
+    f.write('Alluxio works with Python!\n')
+    for i in range(0,1023):
+    #    for j in range (0,1024):
+        f.write(mystr)
+time_end=time.time()
+print('totally cost',time_end-time_start)
+print('Bandwidth = ',8192.0/(time_end-time_start),'MB/s')
+#info("done")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

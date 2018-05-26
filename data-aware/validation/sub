@@ -1,0 +1,7 @@
+Executable = /BIGDATA/nsccgz_pcheng_1/mytest
+Universe = vanilla
+Input = /home/condor/alluxio-data/1-merged.bam
+Output = merged.bam
+Log = log
+should_transfer_files = No
+Queue

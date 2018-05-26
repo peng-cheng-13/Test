@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# module init required when running on non-OSG resources, and has to sourced
+# before set -e as sometimes it exits non-0 when a module environment is 
+# already set up
+
+export JAVA_HOME=/usr/software/java/jdk1.8.0_121/bin/java
+export PATH=/usr/software/java/jdk1.8.0_121/bin:/home/condor/install/bowtie2-2.2.9:$PATH
+set -e
+sleep 10
+/home/condor/install/samtools-1.5/bin/samtools merge -f merged.bam /home/condor/alluxio-data/workflows/osg-gem-1523237234/scratch/osg-gem-1523237234/00/00/level-2/1-merged.bam
+
